@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulator Geometri</title>
+  <!-- Link to Font Awesome (Optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papk30Y75LmxkU0a7e6MxG9KMI6kYg2rx3EUT2FTeP2HpN5IoJXTQPXmflHQjqru8JP/+c0Vt/5i8tEW4N7D2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Kalkulator Geometri</h1>
+  <div id="calculator">
+    <!-- Kalkulator Bangun Datar -->
+    <section class="calculator-section">
+      <h2>Bangun Datar</h2>
+
+      <!-- Lingkaran -->
+      <div class="shape">
+        <h3><i class="fas fa-circle-notch"></i> Lingkaran</h3>
+        <label for="radius">Radius:</label>
+        <input type="number" id="radius" placeholder="Masukkan radius">
+        <button onclick="hitungLingkaran()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Luas = π × r², Keliling = 2 × π × r</p>
+          <p><strong>Proses:</strong> Menggunakan nilai radius yang dimasukkan untuk menghitung luas dan keliling.</p>
+          <p id="lingkaranHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Persegi -->
+      <div class="shape">
+        <h3><i class="fas fa-square"></i> Persegi</h3>
+        <label for="sisi">Sisi:</label>
+        <input type="number" id="sisi" placeholder="Masukkan sisi persegi">
+        <button onclick="hitungPersegi()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Luas = sisi × sisi, Keliling = 4 × sisi</p>
+          <p><strong>Proses:</strong> Menggunakan nilai sisi yang dimasukkan untuk menghitung luas dan keliling.</p>
+          <p id="persegiHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Segitiga -->
+      <div class="shape">
+        <h3><i class="fas fa-triangle"></i> Segitiga</h3>
+        <label for="alas">Alas:</label>
+        <input type="number" id="alas" placeholder="Masukkan alas segitiga">
+        <label for="tinggi">Tinggi:</label>
+        <input type="number" id="tinggi" placeholder="Masukkan tinggi segitiga">
+        <button onclick="hitungSegitiga()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Luas = 0.5 × alas × tinggi, Keliling (asumsi segitiga sama kaki) = alas + 2 × √[(alas/2)² + tinggi²]</p>
+          <p><strong>Proses:</strong> Menggunakan nilai alas dan tinggi untuk menghitung luas dan keliling.</p>
+          <p id="segitigaHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Persegi Panjang -->
+      <div class="shape">
+        <h3><i class="fas fa-rectangle-wide"></i> Persegi Panjang</h3>
+        <label for="panjang">Panjang:</label>
+        <input type="number" id="panjang" placeholder="Masukkan panjang">
+        <label for="lebar">Lebar:</label>
+        <input type="number" id="lebar" placeholder="Masukkan lebar">
+        <button onclick="hitungPersegiPanjang()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Luas = panjang × lebar, Keliling = 2 × (panjang + lebar)</p>
+          <p><strong>Proses:</strong> Menggunakan nilai panjang dan lebar untuk menghitung luas dan keliling.</p>
+          <p id="persegiPanjangHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kalkulator Bangun Ruang -->
+    <section class="calculator-section">
+      <h2>Bangun Ruang</h2>
+
+      <!-- Kubus -->
+      <div class="shape">
+        <h3><i class="fas fa-cube"></i> Kubus</h3>
+        <label for="sisiKubus">Sisi:</label>
+        <input type="number" id="sisiKubus" placeholder="Masukkan sisi kubus">
+        <button onclick="hitungKubus()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Volume = sisi³, Luas Permukaan = 6 × sisi²</p>
+          <p><strong>Proses:</strong> Menggunakan nilai sisi untuk menghitung volume dan luas permukaan.</p>
+          <p id="kubusHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Balok -->
+      <div class="shape">
+        <h3><i class="fas fa-box"></i> Balok</h3>
+        <label for="panjangBalok">Panjang:</label>
+        <input type="number" id="panjangBalok" placeholder="Masukkan panjang">
+        <label for="lebarBalok">Lebar:</label>
+        <input type="number" id="lebarBalok" placeholder="Masukkan lebar">
+        <label for="tinggiBalok">Tinggi:</label>
+        <input type="number" id="tinggiBalok" placeholder="Masukkan tinggi">
+        <button onclick="hitungBalok()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Volume = panjang × lebar × tinggi, Luas Permukaan = 2 × (panjang × lebar + panjang × tinggi + lebar × tinggi)</p>
+          <p><strong>Proses:</strong> Menggunakan nilai panjang, lebar, dan tinggi untuk menghitung volume dan luas permukaan.</p>
+          <p id="balokHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Bola -->
+      <div class="shape">
+        <h3><i class="fas fa-sphere"></i> Bola</h3>
+        <label for="radiusBola">Radius:</label>
+        <input type="number" id="radiusBola" placeholder="Masukkan radius bola">
+        <button onclick="hitungBola()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Volume = (4/3) × π × r³, Luas Permukaan = 4 × π × r²</p>
+          <p><strong>Proses:</strong> Menggunakan nilai radius untuk menghitung volume dan luas permukaan.</p>
+          <p id="bolaHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+
+      <!-- Tabung -->
+      <div class="shape">
+        <h3><i class="fas fa-cylinder"></i> Tabung</h3>
+        <label for="radiusTabung">Radius:</label>
+        <input type="number" id="radiusTabung" placeholder="Masukkan radius">
+        <label for="tinggiTabung">Tinggi:</label>
+        <input type="number" id="tinggiTabung" placeholder="Masukkan tinggi">
+        <button onclick="hitungTabung()">Hitung</button>
+        <div class="result">
+          <p><strong>Cara:</strong> Volume = π × r² × t, Luas Permukaan = 2 × π × r × (r + t)</p>
+          <p><strong>Proses:</strong> Menggunakan nilai radius dan tinggi untuk menghitung volume dan luas permukaan.</p>
+          <p id="tabungHasil"><strong>Hasil:</strong> -</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
